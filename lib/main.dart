@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import './search_field.dart';
 import 'main_slider/main_slider.dart';
 import 'category/categories_screen.dart';
+import './products/category_products_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -50,6 +51,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      routes: {
+        '/category-product': (ctx) => CategoryProductsScreen(),
+      },
     );
   }
 }
