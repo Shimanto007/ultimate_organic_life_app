@@ -3,8 +3,9 @@ import 'dummy_data.dart';
 import 'category_item.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import'../models/products.dart';
 // import 'package:convert/convert.dart';
-// import './category_api.dart';
+import './category_api.dart';
 
 
 class CategoriesScreen extends StatefulWidget {
@@ -18,20 +19,33 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     var hall;
     var index=0;
     var category_list =[];
+    var product_list = [];
+    var list =[];
 
   Future getData() async {
     var response = await http.get(Uri.parse('https://ultimateapi.hostprohub.com/api/get-categories'));
     setState(() {
-      var decode = jsonDecode(response.body);
 
+      var decode = jsonDecode(response.body);
+      List<dynamic> categories = decode["categories"][0]['categories'];
+      var cats = categories[0];
+      print(cats);
+      // print(categories);
+      var result = Map.fromIterable(categories, key: (v) => v[0], value: (v) => v[1]);
+      // print(categories[0]['categories']);
+      // print(result);
       data = decode["categories"][0]["categories"].length;
 
       for(var i =0; i<data; i++) {
-        category_list.add(decode["categories"][0]["categories"][i]["category_name"]);
+        category_list.add(decode["categories"][0]["categories"][i]['category_name']);
       }
-      print(category_list.map((item) => CategoryItem(item)).toList());
-      print(category_list);
+      for(var i =0; i<data; i++) {
+        product_list.add(decode["categories"][0]["categories"][i]);
+      }
 
+
+
+      // print(product_list);
       // print(data);
       // print(data);
       // print(DUMMY_CATEGORIES);
@@ -41,6 +55,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       // print(hall);
     });
   }
+
+
 
   @override
   void initState() {

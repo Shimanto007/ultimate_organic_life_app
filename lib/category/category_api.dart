@@ -1,9 +1,11 @@
+import 'package:meta/meta.dart';
+import 'dart:convert';
+
 // To parse this JSON data, do
 //
 //     final welcome = welcomeFromMap(jsonString);
 
-import 'package:meta/meta.dart';
-import 'dart:convert';
+
 
 
 Welcome welcomeFromMap(String str) => Welcome.fromMap(json.decode(str));
