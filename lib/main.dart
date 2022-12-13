@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/category-product': (ctx) => CategoryProductsScreen(),
+        '/category-product': (item) => CategoryProductsScreen(),
       },
     );
   }

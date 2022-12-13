@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class CategoryProductsScreen extends StatelessWidget {
-  // final String CategoryId;
+  // final String item;
   // final String CategoryTitle;
   //
-  // CategoryProductsScreen(this.CategoryId, this.CategoryTitle);
+  // CategoryProductsScreen(this.item);
 
   @override
   Widget build(BuildContext context) {
     final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final categoryTitle = routeArgs['title'];
-    final categoryId = routeArgs['id'];
+    // final categoryId = routeArgs['id'];
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
