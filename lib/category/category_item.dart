@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import '../products/category_products_screen.dart';
 
 class CategoryItem extends StatelessWidget {
-  final String item;
+  final int id;
+  final String title;
 
-
-
-  CategoryItem(this.item);
+  CategoryItem(this.id, this.title);
 
   void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
       '/category-product',
-      arguments: {'title': item,},
+      arguments: {'id': id, 'title': title},
     );
   }
 
@@ -29,7 +28,7 @@ class CategoryItem extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            item,
+            title,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontFamily: 'Lato',

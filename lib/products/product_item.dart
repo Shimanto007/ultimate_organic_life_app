@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {
+  final dynamic id;
+  final dynamic product_name;
 
-  final String product_name;
-
-  ProductItem(this.product_name);
+  ProductItem(this.id, this.product_name);
 
   @override
   Widget build(BuildContext context) {
-    return GridTile(
-      child: Text(product_name),
+    return SingleChildScrollView(
+      child: GridTile(
+        child: Center(child: Text(product_name)),
+      ),
     );
   }
 }

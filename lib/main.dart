@@ -43,7 +43,9 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
               children: [
-               CategoriesScreen()
+                SearchBar(),
+               FullscreenSliderDemo(),
+               CategoriesScreen(),
               ],
             ),
       ),
